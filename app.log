@@ -187,3 +187,10 @@ INFO:werkzeug: * Detected change in 'C:\\Users\\SHW\\anaconda3\\Lib\\typing.py',
 INFO:werkzeug: * Restarting with watchdog (windowsapi)
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 599-740-962
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:56:45] "GET /koutei/8 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:56:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:56:45] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:56:46] "GET /tenken/8/7 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:56:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:56:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:56:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
