@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>日常設備点検</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+<body>
+  <div class="loader" id="loader">
+    <i class="fas fa-spinner"></i>
+  </div>
+  <header class="admin-header">
+    <div class="title">二戸工場 - 日常設備点検 - 管理者ページ</div>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <i class="fas fa-adjust"></i>
+    </button>
+  </header>
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+
+  <script>
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute("data-theme");
+        const next = current === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const saved = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", saved);
+
+        // ローディング表示制御（必要なら）
+        const loader = document.getElementById("loader");
+        loader.style.display = "none";
+    });
+</script>
+
+<footer>
+  <small>© 株式会社ツガワ　二戸工場</small>
+</footer>
+</body>
+</html>

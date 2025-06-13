@@ -104,6 +104,17 @@ table tr:hover {
     background-color: #f1f1f1;
 }
 
+.red { 
+    color: red;
+}
+
+.orange {
+    color: orange;
+}
+
+.yellow {
+    color: yellow;
+}
 /* 点検済みテーブルのヘッダー（深緑） */
 #tenkenTable thead th {
     background-color: #1c7430 !important;
@@ -196,6 +207,19 @@ table tr:hover {
     max-width: 220px;
     text-align: center;
 }
+.detail-button {
+    background-color: #4CAF50;  /* 背景色 */
+    color: white;  /* 文字色 */
+    padding: 10px 20px;  /* パディング */
+    border-radius: 5px;  /* 角を丸く */
+    text-decoration: none;  /* 下線を消す */
+    display: inline-block;   /* 幅と高さを制御可能に */
+    white-space: nowrap;     /* 改行させない */
+}
+
+.detail-button:hover {
+    background-color: #45a049;  /* ホバー時の背景色 */
+}
 
 .highlight {
     background-color: #dc3545 !important;
@@ -283,6 +307,41 @@ p {
 .nowrap {
     white-space: nowrap;
 }
+
+.admin-header {
+    background-color: #c62828;  /* 赤系のヘッダー */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.admin-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #c62828;  /* 赤系 */
+    color: white;
+    border: none;
+    border-radius: var(--border-radius, 8px);  /* Fallbackあり */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color var(--transition, 0.3s), transform var(--transition, 0.3s);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-button i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.admin-button:hover {
+    background-color: #b71c1c;  /* 濃い赤 */
+    transform: translateY(-3px);
+}
+
   
 @keyframes spin {
     0% { transform: rotate(0deg); }

@@ -1,121 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日常設備点検項目</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-        }
 
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-            color: #333;
-        }
+{% extends "base.html" %}
 
-        h2 {
-            text-align: center;
-            color: #555;
-            margin-bottom: 20px;
-        }
+{% block title %}日常設備点検項目{% endblock %}
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        table th, table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        table th {
-            background-color: #007BFF;
-            color: white;
-        }
-
-        table tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        .button-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #007BFF;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #0056b3;
-        }
-
-        .back-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #6c757d;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .detail-button {
-            background-color: #4CAF50;  /* 背景色 */
-            color: white;  /* 文字色 */
-            padding: 10px 20px;  /* パディング */
-            border-radius: 5px;  /* 角を丸く */
-            text-decoration: none;  /* 下線を消す */
-          }
-        
-        .detail-button:hover {
-            background-color: #45a049;  /* ホバー時の背景色 */
-        }
-
-        p {
-            text-align: center;
-            color: #777;
-        }
-
-        .nowrap {
-            white-space: nowrap;
-        }
-
-    </style>
-
+{% block head %}
     <script>
         function editBiko() {
             document.getElementById("biko-text").style.display = "none";  // 既存のテキストを隠す
@@ -147,9 +35,10 @@
                 }
             });
         }
-        </script>
-</head>
-<body>
+    </script>
+{% endblock %}
+
+{% block content %}
     <div class="container">
         <h1>日常設備点検履歴</h1>
         <h2>工程名: {{ koutei.koutei }} / 設備名:{{ setubi.setubi }} </h2>
@@ -182,59 +71,57 @@
         {% else %}
             <p>点検履歴が登録されていません。</p>
         {% endif %}
-        <div class="grid-container">
-            {% if tenken_result %}
-                <table>
-                    <thead>
-                        <tr>
-                            <th>NO.</th>
-                            <th>点検項目</th>
-                            <th>確認内容</th>
-                            <th>1号機</th>
-                            <th>2号機</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in tenken_result %}
-                        <tr>
-                            <td>{{ item.id }}</td>
-                            <td>{{ item.list }}</td>
-                            <td>{{ item.contents }}</td>
-                            <td>{{ item.result1 }}
-                                <span>
-                                    {% if item.id == 1 or item.id >= 16 and item.id <=21 %}
-                                        hr
-                                    {% elif item.id == 2 %}
-                                        Mpa
-                                    {% elif item.id == 3 %}
-                                        ℃
-                                    {% endif %}
-                                </span>
-                            </td>
-                            <td>{{ item.result2 }}
-                                <span>
-                                    {% if item.id == 1 or item.id >= 16 and item.id <=21 %}
-                                        hr
-                                    {% elif item.id == 2 %}
-                                        Mpa
-                                    {% elif item.id == 3 %}
-                                        ℃
-                                    {% endif %}
-                                </span>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+        {% if tenken_result %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>NO.</th>
+                        <th>点検項目</th>
+                        <th>確認内容</th>
+                        <th>1号機</th>
+                        <th>2号機</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in tenken_result %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.list }}</td>
+                        <td>{{ item.contents }}</td>
+                        <td>{{ item.result1 }}
+                            <span>
+                                {% if item.id == 1 or item.id >= 16 and item.id <=21 %}
+                                    hr
+                                {% elif item.id == 2 %}
+                                    Mpa
+                                {% elif item.id == 3 %}
+                                    ℃
+                                {% endif %}
+                            </span>
+                        </td>
+                        <td>{{ item.result2 }}
+                            <span>
+                                {% if item.id == 1 or item.id >= 16 and item.id <=21 %}
+                                    hr
+                                {% elif item.id == 2 %}
+                                    Mpa
+                                {% elif item.id == 3 %}
+                                    ℃
+                                {% endif %}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
             {% else %}
                 <p>点検履歴が登録されていません。</p>
             {% endif %}
-        </div>
 
         
-    <div class="button-container">
-        <a href="javascript:history.back()" class="back-button">戻る</a>
+        <div class="button-container">
+            <a href="javascript:history.back()" class="back-button">戻る</a>
+        </div>
     </div>
-</div>
-</body>
-</html>
+{% endblock %}
