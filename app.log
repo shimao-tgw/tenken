@@ -185,3 +185,5 @@ INFO:werkzeug: * Detected change in 'C:\\Users\\SHW\\anaconda3\\Lib\\site-packag
 INFO:werkzeug: * Detected change in 'C:\\Users\\SHW\\anaconda3\\Lib\\site-packages\\apscheduler\\jobstores\\memory.py', reloading
 INFO:werkzeug: * Detected change in 'C:\\Users\\SHW\\anaconda3\\Lib\\typing.py', reloading
 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 599-740-962
