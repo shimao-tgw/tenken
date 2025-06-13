@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+{% block title %}日常設備点検項目{% endblock %}
+
+{% block head %}
+    <script>
+        function validateForm() {
+            // 全てのチェックボックスを取得
+            const excludedIds = ["24"];
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let isChecked = true; // チェック漏れがあれば false にする
+    
+            // 各チェックボックスをループ処理
+            checkboxes.forEach(function(checkbox) {
+                // name='gr_check' はスキップ
+                if (checkbox.name === 'gr_check') {
+                    return;
+                }
+                
+                // name="check_c24" の形式から数値IDを取得
+                const match = name.match(/^check_c(\d+)$/);
+                if (match) {
+                    const id = parseInt(match[1]);
+
+                    // ID 24 はバリデーションスキップ
+                    if (id === 24) return;
+
+                    // チェックされていなければエラー
+                    if (!checkbox.checked) {
+                        isChecked = false;
+                    }
+                }
+
+            });
+    
+            // チェック漏れがあった場合はアラートを表示して送信をキャンセル
+            if (!isChecked) {
+                alert("チェック漏れがあります");
+                return false; // フォーム送信をキャンセル
+            }
+            
+            // 数値（正の整数または小数）であるかチェック（正規表現）
+            let air_pressure = document.getElementsByName("air_pressure")[0].value.trim();
+            let residual_pressure = document.getElementsByName("residual_pressure")[0].value.trim();
+            let regex = /^(?:\d+|\d*\.\d+)$/;
+            
+            // air_pressure（エアー圧）のチェック
+            if (air_pressure === "" || !regex.test(air_pressure)) {
+                alert("エアー圧の入力に誤りがあります。");
+                return false; // フォーム送信を中止
+            }
+
+            // EM の場合、residual_pressure（アシストガスの残圧）の項目は表示されないので、チェックしない
+            if (residual_pressure === "" || !regex.test(residual_pressure)) {
+                alert("アシストガスの残圧の入力に間違いがあります。");
+                return false; 
+            }
+
+            return true; // フォーム送信を許可
+        }
+    </script>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>日常設備点検項目</h1>
+        <h2>工程名: {{ koutei.koutei }} / 設備名: {{ setubi.setubi }}</h2>
+        <form  method="POST" onsubmit="return validateForm()">
+            <!-- <div class="grid-container"> -->
+                {% if tenken_list %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>NO.</th>
+                                <th>点検項目</th>
+                                <th>管理値・確認内容</th>
+                                <th>チェック</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in tenken_list %}
+                                <tr>
+                                    <td>{{ item.id }}</td>
+                                    <td>{{ item.tenken_list }}</td>
+                                    <td>{{ item.contents }}</td>
+                                    <td>
+                                        <input type="checkbox" name="check_c{{ item.id }}" value="OK">
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>点検リストが登録されていません。</p>
+                {% endif %}
+            <!-- </div> -->
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" center>入力項目</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label for="tenken_person">点検者:</label></td>
+                        <td>
+                            <select id="tenken_person" name="tenken_person" required>
+                                <option value="">選択してください</option>
+                                {% for person in person_list %}
+                                <option value="{{ person.name }}">{{ person.name }}
+                                </option>
+                                {% endfor %}
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><td>点検日時:</td>
+                        <td><input type="datetime-local" id="" name="tenken_date" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">エアー圧:</label></td>
+                        <td><input type="number" id="" step="0.01" name="air_pressure" required></td>
+                    </tr>
+                        <tr>
+                            <td><label for="">アシストガスの残圧:</label></td>
+                            <td><input type="number" id="" step="0.01" name="residual_pressure" required></td>
+                        </tr>
+                    <tr>
+                        <td><label for="tenken_person">グリスアップ実施:</label></td>
+                        <td>
+                            <input type="checkbox" name="gr_check" id="gr_check" value="OK">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="remarks">備考(100字以内):</label></td>
+                        <td><textarea id="remarks" name="remarks" rows="3" maxlength="100"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="button-container">
+                <button type="submit">送信</button>
+            </div>
+        </form>
+        <br>
+        <br>
+        <h3>点検履歴　最新5件</h3>
+        {% if tenken_rireki %} 
+            <table>
+                <thead>
+                    <tr>
+                        <th>点検実施日</th>
+                        <th>作業者</th>
+                        <th class="nowrap">グリスアップ実施</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in tenken_rireki %}
+                    <tr>
+                        <td class="nowrap">{{ item.tenken_date }}</td>
+                        <td class="nowrap">{{ item.tenken_person }}</td>
+                        <td>{{ item.gr_check }}</td>
+                        <td>{{ item.biko }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>点検リストが登録されていません。</p>
+        {% endif %}
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-button">戻る</a>
+    </div>
+{% endblock %}

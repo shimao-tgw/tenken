@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD DataTable</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <h2>データ管理</h2>
+
+    <button id="addRow">追加</button>
+
+    <table id="example" class="display">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th>年齢</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>田中</td>
+                <td>30</td>
+                <td><button class="delete">削除</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>佐藤</td>
+                <td>25</td>
+                <td><button class="delete">削除</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            var table = $('#example').DataTable();
+
+            // 行を追加
+            $('#addRow').on('click', function() {
+                var newId = table.rows().count() + 1;  // 新しいIDを設定
+                table.row.add([
+                    newId,
+                    '新しい名前',
+                    '20',
+                    '<button class="delete">削除</button>'
+                ]).draw();
+            });
+
+            // 行を削除
+            $('#example tbody').on('click', '.delete', function() {
+                table.row($(this).parents('tr')).remove().draw();
+            });
+        });
+    </script>
+</body>
+</html>

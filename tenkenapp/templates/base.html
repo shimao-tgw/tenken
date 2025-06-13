@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>日常設備点検</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+<body>
+  <div class="loader" id="loader">
+    <i class="fas fa-spinner"></i>
+  </div>
+  <header>
+    <div class="title">二戸工場 - 日常設備点検</div>
+    <button class="theme-toggle" onclick="toggleTheme()">
+      <i class="fas fa-adjust"></i>
+    </button>
+  </header>
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+
+  <script>
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute("data-theme");
+        const next = current === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+        const saved = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", saved);
+
+        // ローディング表示制御（必要なら）
+        const loader = document.getElementById("loader");
+        loader.style.display = "none";
+    });
+</script>
+
+  <!-- フラッシュメッセージをここに表示 -->
+  <div class="container mt-2">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div id="flash-message" class="alert alert-success text-center" role="alert">
+          {{ messages[0] }}
+        </div>
+      {% endif %}
+    {% endwith %}
+  </div>
+
+<footer>
+  <small>© 株式会社ツガワ　二戸工場</small>
+</footer>
+
+<!-- jQueryで自動的に消す処理 -->
+<!-- body の最後に置く -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      const flash = document.getElementById('flash-message');
+      if (flash) {
+        flash.style.transition = 'opacity 0.5s';
+        flash.style.opacity = 0;
+        setTimeout(() => flash.remove(), 500);
+      }
+    }, 2000);
+  });
+</script>
+</body>
+</html>

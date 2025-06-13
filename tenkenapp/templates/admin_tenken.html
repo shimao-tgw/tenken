@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>点検データ管理</title>
+    <!-- BootstrapのCSSを追加 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <style>
+        .btn {
+            margin-right: 5px; /* ボタンの右側に5pxの隙間を追加 */
+        }
+        .nowrap {
+            white-space: nowrap;
+        }
+        #tenkenTable td {
+            white-space: nowrap; /* テキストが改行されないようにする */
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <!-- 戻るボタンを追加 -->
+        <a href="/admin" class="btn btn-secondary btn-sm ml-1">戻る</a>
+        <h2 class="text-center">点検データ管理</h2>
+        <div class="text-center">
+            <label>※コンプレッサー/1号機・2号機は別テーブルです</label>
+        </div>
+        <table id="tenkenTable" class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th class="text-nowrap">部署名</th>
+                    <th class="text-nowrap">設備名</th>
+                    <th class="text-nowrap">点検者</th>
+                    <th class="text-nowrap">点検日</th>
+                    <th class="text-nowrap">備考</th>
+                    <th class="text-nowrap">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- データは動的に追加されます -->
+            </tbody>
+        </table>
+
+        <!-- 編集用モーダル -->
+        <div class="modal" id="editModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle">編集</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- 編集フォーム -->
+                        <form id="editForm">
+                            <input type="hidden" id="editId"> <!-- 編集対象のID -->
+                            <div class="form-group">
+                                <label for="editBusyo">部署</label>
+                                <input type="text" class="form-control" id="editBusyo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editSetubi">設備名</label>
+                                <input type="text" class="form-control" id="editSetubi" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editTenkenPerson">点検者</label>
+                                <input type="text" class="form-control" id="editTenkenPerson" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editTenkenDate">点検日</label>
+                                <input type="datetime-local" class="form-control" id="editTenkenDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editBiko">備考</label>
+                                <input type="text" class="form-control" id="editBiko">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                        <button type="button" class="btn btn-primary" id="saveEdit">保存</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- BootstrapのJSと依存関係のライブラリ -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#tenkenTable').DataTable({
+                "processing": true,
+                "serverSide": false,
+                "ajax": "/admin_tenken_data",  // データ取得用のAPI
+                "columns": [
+                    { "data": "id" },
+                    { "data": "busyo_name" },
+                    { "data": "setubi_name" },
+                    { "data": "tenken_person" },
+                    { "data": "tenken_date" },
+                    { "data": "biko" },
+                    {
+                        "data": "id",
+                        "render": function(data, type, row) {
+                            return `
+                                <button class="editBtn btn btn-warning btn-sm" data-id="${data}" data-bs-toggle="modal" data-bs-target="#editModal">編集</button>
+                                <button class="deleteBtn btn btn-danger btn-sm" data-id="${data}">削除</button>
+                            `;
+                        }
+                    }
+                ],
+                "order": [[4, 'desc']]  // 4番目（点検日）を降順で並べる
+            });
+        
+            /// 編集ボタンの動作
+            $(document).on('click', '.editBtn', function() {
+                const id = $(this).data('id');
+                $.ajax({
+                    url: `/admin_tenken/get/${id}`,  // 特定のデータを取得
+                    method: 'GET',
+                    success: function(data) {
+                        $('#editId').val(data.id);
+                        $('#editBusyo').val(data.busyo_name);
+                        $('#editSetubi').val(data.setubi_name);
+                        $('#editTenkenPerson').val(data.tenken_person);
+                        $('#editTenkenDate').val(data.tenken_date);
+                        $('#editBiko').val(data.biko);
+
+                        // モーダルを表示
+                        $('#editModal').modal('show');
+                    }
+                });
+            });
+
+            // 編集ボタンがクリックされたとき
+            $(document).on('click', '.editBtn', function() {
+                const id = $(this).data('id');  // 編集対象のIDを取得
+
+                // サーバーからデータを取得してフォームに設定
+                $.ajax({
+                    url: `/admin_tenken/get/${id}`,  // 対象データの取得
+                    method: 'GET',
+                    success: function(data) {
+                        // フォームの各フィールドにデータを設定
+                        $('#editId').val(data.id);
+                        $('#editBusyo').val(data.busyo_name);
+                        $('#editSetubi').val(data.setubi_name);
+                        $('#editTenkenPerson').val(data.tenken_person);
+                        $('#editTenkenDate').val(data.tenken_date);
+                        $('#editBiko').val(data.biko);
+
+                        // モーダルを表示
+                        $('#editModal').modal('show');
+                    }
+                });
+            });
+            
+            // 保存ボタンがクリックされたとき
+            $('#saveEdit').on('click', function() {
+                const id = $('#editId').val();
+                const updatedData = {
+                    busyo_name: $('#editBusyo').val(),
+                    setubi_name: $('#editSetubi').val(),
+                    tenken_person: $('#editTenkenPerson').val(),
+                    tenken_date: $('#editTenkenDate').val(),
+                    biko: $('#editBiko').val()
+                };
+
+                $.ajax({
+                    url: `/admin_tenken/update/${id}`,  // 更新するURL
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(updatedData),
+                    success: function(response) {
+                        alert('データが更新されました');
+                        $('#editModal').modal('hide');  // モーダルを閉じる
+                        // 必要に応じて、データの更新後にテーブルを再読み込みするなど
+                        $('#tenkenTable').DataTable().ajax.reload();  // 例: DataTableの再読み込み
+                    }
+                });
+            });
+
+            // 更新フォームの送信
+            $('#updateForm').submit(function(event) {
+                event.preventDefault();
+
+                const id = $('#editId').val();
+                const updatedData = {
+                    busyo_name: $('#editBusyoName').val(),
+                    setubi_name: $('#editSetubiName').val(),
+                    tenken_person: $('#editTenkenPerson').val(),
+                    tenken_date: $('#editTenkenDate').val(),
+                    biko: $('#editBiko').val()
+                };
+
+                $.ajax({
+                    url: `/admin_tenken/update/${id}`,
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(updatedData),
+                    success: function(response) {
+                        alert('データが更新されました');
+                        $('#editModal').hide();  // モーダルを閉じる
+                        $('#tenkenTable').DataTable().ajax.reload();  // テーブルの再読み込み
+                    }
+                });
+            });
+        
+            // 削除ボタンの動作
+            $(document).on('click', '.deleteBtn', function() {
+                const id = $(this).data('id');
+                if (confirm('本当に削除してもよろしいですか？')) {
+                    $.ajax({
+                        url: `/admin_tenken/delete/${id}`,
+                        method: 'DELETE',
+                        success: function(response) {
+                            alert('データが削除されました');
+                            $('#tenkenTable').DataTable().ajax.reload();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+    "name": "Tenken App",
+    "short_name": "点検アプリ",
+    "icons": [
+      {
+        "src": "/static/icon/apple-touch-icon-152x152.png",
+        "sizes": "152x152",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/icon/apple-touch-icon-180x180.png",
+        "sizes": "180x180",
+        "type": "image/png"
+      },
+      {
+        "src": "/static/icon/apple-touch-icon-256x256.png",
+        "sizes": "256x256",
+        "type": "image/png"
+      }
+    ],
+    "display": "standalone"
+  }
+  

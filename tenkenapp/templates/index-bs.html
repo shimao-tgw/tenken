@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常設備点検項目</title>
+    <style>
+        :root {
+            --main-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --button-bg: #e9ecef;
+            --button-hover: #d6d8db;
+            --font-color: #212529;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--font-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            font-size: 22px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
+            margin-bottom: 20px;
+            color: var(--main-color);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+        }
+
+        .button {
+            display: block;
+            background-color: var(--button-bg);
+            padding: 14px 10px;
+            border-radius: 6px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--main-color);
+            font-size: 16px;
+            border: 1px solid #ced4da;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .button:hover {
+            background-color: var(--button-hover);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* モバイル対応 */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 18px;
+            }
+
+            .button {
+                font-size: 14px;
+                padding: 12px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>二戸工場 - 日常設備点検項目</h1>
+        <div class="grid-container">
+            {% for process in processes %}
+            <a href="{{ url_for('koutei_page', id=process.id) }}" class="button">{{ process.koutei }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>日常設備点検 - 履歴確認</h1>
+        <div class="grid-container">
+            {% for process in processes %}
+            <a href="{{ url_for('rireki_page', koutei_id=process.id) }}" class="button">{{ process.koutei }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>テビキ操作説明</h1>
+        <div class="grid-container">
+            <a href="https://i83jds.tebiki.jp/courses/168914/play/3632357" class="button">操作説明</a>
+            <a href="https://i83jds.tebiki.jp/courses/168914/play/3632373" class="button">データ確認方法</a>
+            <a href="https://i83jds.tebiki.jp/courses/168914/play/3632385" class="button">NCTｺﾝﾌﾟﾚｯｻｰ説明</a>
+        </div>
+    </div>
+</body>
+</html>

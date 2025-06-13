@@ -1,0 +1,13 @@
+DEBUG = True
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://syskai-s:Tgw#5551@192.168.4.188:3306/TENKENLIST_DB'
+SQLALCHEMY_TRACK_MODIFICATIONS = True
+
+#メール設定
+MAIL_SERVER = '192.168.4.1'
+MAIL_PORT = 25
+MAIL_USE_TLS = False
+MAIL_USE_SSL = False
+MAIL_USERNAME = 'app_sender@tsugawa.jp'
+MAIL_PASSWORD = 'tgw5repyq'
+MAIL_DEFAULT_SENDER = 'app_sender@tsugawa.jp'
+MAIL_DEBUG = True

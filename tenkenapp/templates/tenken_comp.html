@@ -1,0 +1,321 @@
+{% extends "base.html" %}
+
+{% block title %}日常設備点検項目{% endblock %}
+
+{% block head %}
+    <script>
+        function validateForm() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let isChecked = true; // チェック漏れがあれば false にする
+        
+            // チェックボックスが1つでもオフなら isChecked を false に
+            checkboxes.forEach(function(checkbox) {
+                if (!checkbox.checked) {
+                    isChecked = false;
+                }
+            });
+        
+            // チェック漏れがあった場合はアラートを表示して送信をキャンセル
+            if (!isChecked) {
+                alert("チェック漏れがあります");
+                return false;  // フォーム送信をキャンセル
+            }
+
+            // name="remarks"以外のテキストボックスの入力チェック（整数または小数のみ許可）
+            const inputFields = document.querySelectorAll('input[type="text"]:not([name="remarks"])');
+
+            for (let i = 0; i < inputFields.length; i++) {
+                const value = inputFields[i].value;
+                const regex = /^[0-9]+(\.[0-9]+)?$/; // 整数または小数のみ許可する正規表現
+
+                if (value && !regex.test(value)) {
+                    alert("無効な入力があります。整数または小数のみ入力してください。");
+                    inputFields[i].focus();
+                    return false;
+                }
+            }
+
+            return true;  // フォーム送信を許可
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>日常設備点検項目</h1>
+        <h2>工程名: {{ koutei.koutei }} / 設備名: {{ setubi.setubi }}</h2>
+        <form  method="POST" onsubmit="return validateForm()">
+            <!-- <div class="grid-container"> -->
+                {% if tenken_list %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>NO.</th>
+                                <th>点検項目</th>
+                                <th>確認項目</th>
+                                <th>1号機</th>
+                                <th>2号機</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in tenken_list %}
+                                {% if item.id <= 15 %}
+                                    <tr>
+                                        <td>{{ item.id }}</td>
+                                        <td>{{ item.tenken_list }}</td>
+                                        <td>{{ item.contents|replace('/', '<br>')|safe }}
+                                            {% if item.id == 5 %}
+                                                <span class="red"> ◉</span>
+                                            {% elif item.id == 6 %}
+                                                <span class="orange"> ◉</span>
+                                            {% elif item.id == 7 %}
+                                                <span class="yellow"> ◉</span>
+                                            {% endif%}
+                                        </td>
+                                        <td  class="nowrap">
+                                            {% if item.input_type == "text" %}
+                                                <input type="number" name="{{ item.name }}_1" step="0.01" value="" required> <span>{{ item.unit_text }}</span>
+                                                
+                                            {% elif item.input_type == "radio" %}
+                                                <input type="radio" name="{{ item.name }}_1" value="OK" required> 合
+                                                <input type="radio" name="{{ item.name }}_1" value="NG" required> 否
+                                            {% elif item.input_type == "radio2" %}
+                                                <input type="radio" name="{{ item.name }}_1" value="実施" required> 実施
+                                                <input type="radio" name="{{ item.name }}_1" value="未実施" required> 未実施
+                                            {% elif item.input_type == "combo" %}
+                                                <select id="" name="{{ item.name }}_1" required>
+                                                    <option value="">選択してください</option>
+                                                    <option value="消灯">消灯</option>
+                                                    <option value="点滅">点滅</option>
+                                                    <option value="点灯">点灯</option>
+                                                </select>
+                                            {% else %}
+                                                <span>（入力なし）</span>
+                                            {% endif %}
+                                        </td>
+                                        <td  class="nowrap">
+                                            {% if item.input_type == "text" %}
+                                                <input type="number" name="{{ item.name }}_2" step="0.01" value="" required> <span>{{ item.unit_text }}</span>
+                                                
+                                            {% elif item.input_type == "radio" %}
+                                                <input type="radio" name="{{ item.name }}_2" value="OK" required> 合
+                                                <input type="radio" name="{{ item.name }}_2" value="NG" required> 否
+                                            {% elif item.input_type == "radio2" %}
+                                                <input type="radio" name="{{ item.name }}_2" value="実施" required> 実施
+                                                <input type="radio" name="{{ item.name }}_2" value="未実施" required> 未実施
+                                            {% elif item.input_type == "combo" %}
+                                                <select id="" name="{{ item.name }}_2" required>
+                                                    <option value="">選択してください</option>
+                                                    <option value="消灯">消灯</option>
+                                                    <option value="点滅">点滅</option>
+                                                    <option value="点灯">点灯</option>
+                                                </select>
+                                            {% else %}
+                                                <span>（入力なし）</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>点検リストが登録されていません。</p>
+                {% endif %}
+            <!-- </div> -->
+            <br>
+            <h3>メンテナンスまでの時間確認</h3>
+            <!-- <div class="grid-container"> -->
+                <div style="margin-bottom: 0;">呼び出し順　ホーム ＞＞ 運転状況 ＞＞ メンテナンス情報</div>
+                {% if tenken_list %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>NO.</th>
+                                <th>点検項目</th>
+                                <th></th>
+                                <th>1号機</th>
+                                <th>2号機</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in tenken_list %}
+                                {% if 16 <= item.id <= 21 %}
+                                    <tr>
+                                        <td>{{ item.id }}</td>
+                                        <td>{{ item.tenken_list }}</td>
+                                        <td>{{ item.contents|replace('/', '<br>')|safe }}</td>
+                                        <td>
+                                            {% if item.input_type == "text" %}
+                                                <input type="number" name="{{ item.name }}_1" value="" required> <span>{{ item.unit_text}}</span>
+                                            {% elif item.input_type == "radio" %}
+                                                <input type="radio" name="{{ item.name }}_1" value="OK" required> 合
+                                                <input type="radio" name="{{ item.name }}_1" value="NG" required> 否
+                                            {% elif item.input_type == "combo" %}
+                                                <select id="" name="{{ item.name }}_1" required>
+                                                    <option value="">選択してください</option>
+                                                    <option value="OK">OK</option>
+                                                    <option value="点滅">点滅</option>
+                                                    <option value="●">●</option>
+                                                </select>
+                                            {% else %}
+                                                <span>（入力なし）</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if item.input_type == "text" %}
+                                                <input type="number" name="{{ item.name }}_2" value="" required> <span>{{ item.unit_text}}</span>
+                                            {% elif item.input_type == "radio" %}
+                                                <input type="radio" name="{{ item.name }}_2" value="OK" required> 合
+                                                <input type="radio" name="{{ item.name }}_2" value="NG" required> 否
+                                            {% elif item.input_type == "combo" %}
+                                                <select id="" name="{{ item.name }}_2" required>
+                                                    <option value="">選択してください</option>
+                                                    <option value="OK">OK</option>
+                                                    <option value="点滅">点滅</option>
+                                                    <option value="●">●</option>
+                                                </select>
+                                            {% else %}
+                                                <span>（入力なし）</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>点検リストが登録されていません。</p>
+                {% endif %}
+                <div style="margin-top: 0; display: inline-block;">※ダストフィルタ清掃　項目は記入なし　フィルタ清掃後リセットする → 500hr に戻す</div>
+            <!-- </div> -->
+            <br>
+            <h3>ドレン処理装置</h3>
+            <!-- <div class="grid-container"> -->
+                {% if tenken_list %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>NO.</th>
+                                <th>点検項目</th>
+                                <th>確認項目</th>
+                                <th>チェック</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in tenken_list %}
+                                {% if 22 <= item.id <= 26 %}
+                                    <tr>
+                                        <td>{{ item.id }}</td>
+                                        <td>{{ item.tenken_list }}</td>
+                                        <td>{{ item.contents|replace('/', '<br>')|safe }}</td>
+                                        <td  class="nowrap">
+                                            {% if item.input_type == "text" %}
+                                                <input type="text" name="{{ item.name }}" value="" required>
+                                                
+                                            {% elif item.input_type == "radio" %}
+                                                <input type="radio" name="{{ item.name }}" value="OK" required> 合
+                                                <input type="radio" name="{{ item.name }}" value="NG" required> 否
+                                            {% elif item.input_type == "radio2" %}
+                                                <input type="radio" name="{{ item.name }}" value="実施" required> 実施
+                                                <input type="radio" name="{{ item.name }}" value="未実施" required> 未実施
+                                            {% else %}
+                                                <span>（入力なし）</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>点検リストが登録されていません。</p>
+                {% endif %}
+            <!-- </div> -->
+            <br>
+            <br>
+            <div style="margin-bottom: 0;">※否の項目は具体的な内容を備考に記載すること</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" center>入力項目</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label for="tenken_person">メイン稼働号機:</label></td>
+                        <td>
+                            <input type="radio" name="main_work_1" value="1号機" required> 1号機
+                            <input type="radio" name="main_work_1" value="2号機" required> 2号機
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="tenken_busyo">メイン部署:</label></td>
+                        <td>
+                            <select id="tenken_busyo" name="tenken_busyo" required>
+                                <option value="">選択してください</option>
+                                    <option value="NCT">NCT</option>
+                                    <option value="バリ取り">バリ取り</option>
+                                    <option value="プレス・タップ">プレス・タップ</option>
+                                    <option value="ベンダー">ベンダー</option>
+                                    <option value="スポット">スポット</option>
+                                    <option value="仕上げ">仕上げ</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="tenken_person">点検者:</label></td>
+                        <td>
+                            <select id="tenken_person" name="tenken_person" required>
+                                <option value="">選択してください</option>
+                                {% for person in person_list %}
+                                <option value="{{ person.name }}">{{ person.name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><td>点検日時:</td>
+                        <td><input type="datetime-local" id="" name="tenken_date" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="remarks">備考(100字以内):</label></td>
+                        <td><textarea id="remarks" name="remarks" rows="3" maxlength="100"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="button-container">
+                <button type="submit">送信</button>
+            </div>
+        </form>
+        <br>
+        <br>
+        <h3>点検履歴　最新5件</h3>
+        {% if tenken_rireki %} 
+            <table>
+                <thead>
+                    <tr>
+                        <th>点検実施日</th>
+                        <th>作業者</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in tenken_rireki %}
+                    <tr>
+                        <td class="nowrap">{{ item.inspection_id }}</td>
+                        <td class="nowrap">{{ item.tenken_person }}</td>
+                        <td>{{ item.biko }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>点検リストが登録されていません。</p>
+        {% endif %}
+
+        <div class="container">
+            <a href="javascript:history.back()" class="back-button">戻る</a>
+        </div>
+    </div>
+{% endblock %}

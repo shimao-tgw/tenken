@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ koutei.name }} - 点検リストメンテナンス</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery（DataTablesより前にロード） -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <!-- Bootstrap Bundle (Popper.jsを含む) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .btn {
+            margin-right: 5px; /* ボタンの右側に5pxの隙間を追加 */
+            margin-bottom: 5px; /* 下側に5pxの隙間 */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <!-- 戻るボタンを追加 -->
+        <a href="javascript:history.back()" class="btn btn-secondary btn-sm ml-1">戻る</a>
+
+        <h1 class="text-center">点検リストメンテナンス</h1>
+        <h3 class="text-center">工程名: {{ koutei.koutei }} / 設備名: {{ setubi.setubi }}</h3>
+
+        <!-- 追加ボタン -->
+        <button class="btn btn-primary mb-3" id="addTenkenlist">追加</button>
+
+        <!-- 点検リストのテーブル -->
+        <table class="table table-striped table-bordered" id="tenkenlistTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>点検項目</th>
+                    <th>管理値・確認内容</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 点検リストのデータがここに挿入される -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- モーダル（新規・編集フォーム） -->
+    <div class="modal" id="tenkenlistModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">新規登録</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- フォーム -->
+                    <form id="tenkenlistForm">
+                        <input type="hidden" id="tenkenlistId">
+                        <div class="form-group">
+                            <label for="tenken_list">点検項目</label>
+                            <input type="text" class="form-control" id="tenken_list" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contents">管理値・確認内容</label>
+                            <input type="text" class="form-control" id="contents" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                    <button type="button" class="btn btn-primary" id="saveTenkenlist">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var koutei_id = {{ koutei.id | tojson }};
+            var setubi_id = {{ setubi.id | tojson }};
+            var apiUrl = `/get_list_detail_data/${koutei_id}/${setubi_id}/`;
+    
+            var table = $('#tenkenlistTable').DataTable({
+                "ajax": {
+                    "url": apiUrl,
+                    "type": "GET",
+                    "dataSrc": function(json) {
+                        if (!Array.isArray(json)) {
+                            alert("データ取得エラー: サーバーからの応答が不正です");
+                            return [];
+                        }
+                        return json.map(item => ({
+                            id: item.id,
+                            tenken_list: item.tenken_list,
+                            contents: item.contents
+                        }));
+                    }
+                },
+                "columns": [
+                    { "data": "id" },
+                    { "data": "tenken_list" },
+                    { "data": "contents" },
+                    {
+                        "data": null,
+                        "render": function(data, type, row) {
+                            return  `<button class="btn btn-warning btn-sm editTenkenlist" data-id="${row.id}" data-tenken_list="${row.tenken_list}" data-contents="${row.contents}">編集</button>
+                                     <button class="btn btn-danger btn-sm deleteTenkenlist" data-id="${row.id}" data-koutei-id="${koutei_id}" data-setubi-id="${setubi_id}">削除</button>`;
+                        }
+                    }
+                ]
+            });
+
+            // 追加ボタン
+            $('#addTenkenlist').click(function() {
+                $('#tenkenlistForm')[0].reset();
+                $('#tenkenlistId').val('');
+                $('#modalTitle').text('新規登録');
+                $('#tenkenlistModal').modal('show');
+            });
+    
+            // 編集ボタンの処理
+            $('#tenkenlistTable tbody').on('click', '.editTenkenlist', function() {
+                var id = $(this).data('id');
+                var tenken_list = $(this).data('tenken_list');
+                var contents = $(this).data('contents');
+    
+                $('#tenkenlistId').val(id);
+                $('#tenken_list').val(tenken_list);
+                $('#contents').val(contents);
+    
+                $('#modalTitle').text('編集');
+                $('#tenkenlistModal').modal('show');
+            });
+    
+            // 保存ボタンの処理（更新）
+            $('#saveTenkenlist').click(function() {
+                var id = $('#tenkenlistId').val();  // IDが空かどうかをチェック
+                var tenken_list = $('#tenken_list').val();
+                var contents = $('#contents').val();
+            
+                var url = '';
+                var method = '';
+                var data = JSON.stringify({ tenken_list: tenken_list, contents: contents });
+            
+                if (!id) {
+                    // 新規追加
+                    url = `/add_list_detail_data/${koutei_id}/${setubi_id}/`;
+                    method = "POST";
+                } else {
+                    // 編集
+                    url = `/update_list_detail_data/${koutei_id}/${setubi_id}/${id}/`;
+                    method = "PUT";
+                }
+            
+                $.ajax({
+                    url: url,
+                    type: method,
+                    contentType: "application/json",
+                    data: data,
+                    success: function(response) {
+                        $('#tenkenlistModal').modal('hide');
+                        table.ajax.reload(); // データを更新
+                        alert(method === "POST" ? '設備情報が追加されました' : '設備情報が更新されました');
+                    },
+                    error: function() {
+                        alert(method === "POST" ? "追加に失敗しました" : "保存に失敗しました");
+                    }
+                });
+            });
+            
+            
+    
+            // 削除ボタンの処理
+            $('#tenkenlistTable tbody').on('click', '.deleteTenkenlist', function() {
+                var id = $(this).data('id');
+                var koutei_id = $(this).data('koutei-id');  // koutei_idを取得
+                var setubi_id = $(this).data('setubi-id');  // setubi_idを取得
+
+                if (confirm("この点検リストを削除してよろしいですか？")) {
+                    $.ajax({
+                        url: `/delete_tenkenlist/${koutei_id}/${setubi_id}/${id}/`,
+                        type: "DELETE",
+                        success: function(response) {
+                            table.ajax.reload(); // データを更新
+                            alert('設備が削除されました');
+                        },
+                        error: function() {
+                            alert("削除に失敗しました");
+                        }
+                    });
+                }
+            });
+
+        });
+    </script>
+    
+</body>
+</html>

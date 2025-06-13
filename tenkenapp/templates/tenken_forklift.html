@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block title %}日常設備点検項目{% endblock %}
+
+{% block head %}
+    <script>
+        function validateForm() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let isChecked = true; // チェック漏れがあれば false にする
+            let hourMeter = document.getElementById("hour_meter").value.trim();
+            let syuzenkasyo = document.getElementsByName("syuzenkasyo")[0].value.trim();
+            let syuzennaiyo = document.getElementsByName("syuzen_naiyo")[0].value.trim();
+
+        
+            // 数値（正の整数または小数）であるかチェック（正規表現）
+            let regex = /^(?:\d+|\d*\.\d+)$/;
+            if (hourMeter === "" || !regex.test(hourMeter)) {
+                alert("アワーメーターは正の整数または小数を入力してください。");
+                return false; // フォーム送信を中止
+            }
+        
+            // チェックボックスが1つでもオフなら isChecked を false に
+            checkboxes.forEach(function(checkbox) {
+                if (!checkbox.checked) {
+                    isChecked = false;
+                }
+            });
+        
+            // チェック漏れがあった場合はアラートを表示して送信をキャンセル
+            if (!isChecked) {
+                alert("チェック漏れがあります");
+                return false;  // フォーム送信をキャンセル
+            }
+        
+            return true;  // フォーム送信を許可
+        }
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>日常設備点検項目</h1>
+        <h2>工程名: {{ koutei.koutei }} / 設備名: {{ setubi.setubi }}</h2>
+        <h2>型式: {{ tenken_model.model_no }} / 製造番号: {{ tenken_model.product_no }}</h2>
+        <form  method="POST" onsubmit="return validateForm()">
+            <!-- <div class="grid-container"> -->
+                {% if tenken_list %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>NO.</th>
+                                <th>検査項目</th>
+                                <th>点検内容</th>
+                                <th>検査方法</th>
+                                <th class="nowrap">チェック</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in tenken_list %}
+                            <tr>
+                                <td>{{ item.id }}</td>
+                                <td class="nowrap">{{ item.tenken_list }}</td>
+                                <td>{{ item.contents|replace('/', '<wbr>')|safe }}</td>
+                                <td class="nowrap">{{ item.kensa_method }}</td>
+                                <td>
+                                    <input type="checkbox" name="check_c{{ item.id }}" value="OK">
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p>点検リストが登録されていません。</p>
+                {% endif %}
+            <!-- </div> -->
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="3" center>入力項目</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label>アワーメーター(必須):</label></td>
+                        <td><input type="number" id="" step="0.1" name="hour_meter" required></td>
+                    </tr>
+                    <tr>
+                        <td><label name="tenken_person">点検者:</label></td>
+                        <td>{{ tenken_model.user }}</td>
+                    </tr>
+                    <tr><td>点検日時:</td>
+                        <td><input type="datetime-local" id="" name="tenken_date" required></td>
+                    </tr>
+                    <tr>
+                        <td><label>修繕箇所及び不具合状況（50文字以内）:</label></td>
+                        <td><textarea id="" name="syuzenkasyo" rows="2" maxlength="50"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label>修繕依頼日:</label></td>
+                        <td><input type="date" id="" name="syuzen_irai_date"></td>
+                    </tr>
+                    <tr>
+                        <td><label>修繕年月日:</label></td>
+                        <td><input type="date" id="" name="syuzen_date"></td>
+                    </tr>
+                    <tr>
+                        <td><label>修繕実施内容（50文字以内）:</label></td>
+                        <td><textarea id="" name="syuzen_naiyo" rows="2" maxlength="50"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="button-container">
+                <button type="submit">送信</button>
+            </div>
+        </form>
+        <br>
+        <br>
+        <h3>点検履歴　最新5件</h3>
+        {% if tenken_rireki %} 
+            <table>
+                <thead>
+                    <tr>
+                        <th>点検実施日</th>
+                        <th>型式</th>
+                        <th>製造番号</th>
+                        <th>作業者</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in tenken_rireki %}
+                    <tr>
+                        <td>{{ item.tenken_date }}</td>
+                        <td>{{ item.model_no }}</td>
+                        <td>{{ item.product_no }}</td>
+                        <td>{{ item.tenken_person }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>点検リストが登録されていません。</p>
+        {% endif %}
+
+        <div class="container">
+            <a href="javascript:history.back()" class="back-button">戻る</a>
+        </div>
+    </div>   
+{% endblock %}

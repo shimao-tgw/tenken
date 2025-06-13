@@ -1,0 +1,37 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 599-740-962
+INFO:werkzeug: * Detected change in 'D:\\py\\flask\\tenken\\tenken-server.py', reloading
+INFO:werkzeug: * Detected change in 'D:\\py\\flask\\tenken\\tenken-server.py', reloading
+INFO:werkzeug: * Restarting with watchdog (windowsapi)
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 599-740-962
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:02:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:02:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:02:55] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:02:56] "GET /koutei/10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:02:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:02:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:02:57] "GET /compressor_mail HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:02:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:02:57] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:02:57] "GET /compressor_mail_data HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:02] "GET /tenken/10/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:02] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:06] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:07] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:08] "GET /koutei/6 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:09] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 16:03:09] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -

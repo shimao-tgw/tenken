@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/icon/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/icon/apple-touch-icon-152x152.png">
+    <link rel="manifest" href="/static/manifest.json">
+    <title>日常設備点検項目</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            justify-items: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            max-width: 130px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* モバイル用スタイル */
+        @media (max-width: 870px) {
+            .container {
+                width: 95%; /* 画面幅を広めに */
+            }
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 2列に変更 */
+                gap: 10px;
+            }
+            .button {
+                font-size: 16px; /* タップしやすいようにフォントサイズUP */
+                padding: 15px 30px;
+                max-width: 70%;
+            }
+        }
+
+        /* スマホ（さらに小さい画面） */
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: repeat(1, 1fr); /* 1列に変更 */
+            }
+            .button {
+                font-size: 15px;
+                padding: 15px 30px;
+                max-width: 70%; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>二戸工場 - 日常設備点検項目</h1>
+        <div class="grid-container">
+            {% for process in processes %}
+            <a href="{{ url_for('koutei_page', id=process.id) }}" class="button">{{ process.koutei }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <h1>日常設備点検 - 履歴確認</h1>
+        <div class="grid-container">
+            {% for process in processes %}
+            <a href="{{ url_for('rireki_page', koutei_id=process.id) }}" class="button">{{ process.koutei }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <h1>テビキ操作説明</h1>
+        <div class="grid-container">
+            <a href="https://i83jds.tebiki.jp/courses/168914/play/3632357" class="button">操作説明</a>
+            <a href="https://i83jds.tebiki.jp/courses/168914/play/3632373" class="button">データ確認方法</a>
+            <a href="https://i83jds.tebiki.jp/courses/168914/play/3632385" class="button">NCTｺﾝﾌﾟﾚｯｻｰ説明</a>
+        </div>
+    </div>
+</body>
+</html>

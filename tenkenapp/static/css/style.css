@@ -1,0 +1,303 @@
+:root {
+    --primary: #0d6efd;
+    --primary-dark: #0a58ca;
+    --bg: #f5f5f5;
+    --text: #333;
+    --border-radius: 12px;
+    --transition: 0.3s;
+}
+
+[data-theme="dark"] {
+    --bg: #1e1e1e;
+    --text: #f0f0f0;
+    --primary: #66b2ff;
+    --primary-dark: #3399ff;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    transition: background-color var(--transition), color var(--transition);
+}
+
+header {
+    background: var(--primary);
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.title {
+    font-size: 1.2rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 0 20px;
+    justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 5px;
+    text-align: center;
+    color: #333;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 点検済みテーブルのヘッダー（深緑） */
+#tenkenTable thead th {
+    background-color: #1c7430 !important;
+    color: #ffffff !important;
+    text-align: center;
+  }
+  
+  /* 点検予定テーブルのヘッダー（濃い青） */
+  #scheduleTable thead th {
+    background-color: #004085 !important;
+    color: #ffffff !important;
+    text-align: center;
+  }
+  
+  /* 両方のテーブルのセルに少しパディングを追加 */
+  #tenkenTable td,
+  #scheduleTable td {
+    padding: 8px 12px;
+    vertical-align: middle;
+  }
+  
+  /* テーブルの行ホバー時の背景色 */
+  #tenkenTable tbody tr:hover,
+  #scheduleTable tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* 点検済みテーブルのデータ行の背景色（薄い緑） */
+#tenkenTable tbody td {
+    background-color: #e9f7ef;
+  }
+  
+  /* 点検予定テーブルのデータ行の背景色（薄い青） */
+  #scheduleTable tbody td {
+    background-color: #e7f0fd;
+  }
+  
+  
+.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color var(--transition), transform var(--transition);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.button:hover {
+    background-color: var(--primary-dark);
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+.button-container button {
+    font-size: 1.2rem;        /* テキストを大きく */
+    padding: 1rem 2rem;       /* パディングを大きく */
+    border-radius: 8px;       /* 見た目も丸める */
+    min-width: 130px;         /* 最小幅 */
+    min-height: 40px;         /* 最小高さ（指でも押しやすく） */
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-container {
+    text-align: center; /* 中央寄せ */
+    margin-top: 20px;   /* 上に余白が欲しければ */
+}
+
+.button-container button:hover {
+    background-color: #0056b3;
+}
+
+.button-wrapper {
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+}
+
+.highlight {
+    background-color: #dc3545 !important;
+}
+
+.user-info {
+    text-align: right;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.loader {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+}
+
+.loader i {
+    font-size: 2rem;
+    color: var(--primary);
+    animation: spin 1s linear infinite;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 20px; /* ← ボタン間の余白 */
+    justify-content: center;
+    padding: 20px; /* 任意：周囲の余白 */
+}
+
+.grid-container table {
+    width: 100%;
+    max-width: 600px;
+    table-layout: fixed;
+}
+
+footer {
+    text-align: center;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6c757d;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #5a6268;
+}
+
+p {
+    text-align: center;
+    color: #777;
+}
+
+.alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.alert-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.alert-error {
+    background-color: #dc3545;
+    color: white;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 870px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+    }
+}

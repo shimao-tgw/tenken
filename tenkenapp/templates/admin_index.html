@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/icon/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/icon/apple-touch-icon-152x152.png">
+    <link rel="manifest" href="/static/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+    <title>日常設備点検項目 - 管理ページ -</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            justify-items: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff0000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            max-width: 150px;
+        }
+        .button:hover {
+            background-color: #b31500;
+        }
+
+        /* モバイル用スタイル */
+        @media (max-width: 870px) {
+            .container {
+                width: 95%; /* 画面幅を広めに */
+            }
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 2列に変更 */
+                gap: 10px;
+            }
+            .button {
+                font-size: 16px; /* タップしやすいようにフォントサイズUP */
+                padding: 15px 30px;
+                max-width: 70%;
+            }
+        }
+
+        /* スマホ（さらに小さい画面） */
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: repeat(1, 1fr); /* 1列に変更 */
+            }
+            .button {
+                font-size: 15px;
+                padding: 15px 30px;
+                max-width: 70%; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>テーブル管理ページ</h1>
+        <div class="grid-container">
+            <a href="{{ url_for('admin_tenken') }}" class="button">点検テーブル</a>
+            <a href="{{ url_for('admin_tenkencomp') }}" class="button">コンプレッサー<br>点検テーブル</a>
+            <a href="{{ url_for('admin_koutei') }}" class="button">工程テーブル</a>
+            <!-- <a href="{{ url_for('admin_setubi_index') }}" class="button">設備テーブル/</a> -->
+            <a href="" class="button">設備テーブル<br>(メンテ中）</a>
+            <a href="{{ url_for('admin_person') }}" class="button">社員テーブル</a>
+            <a href="{{ url_for('admin_list_index') }}" class="button">点検リストテーブル</a>
+        </div>
+    </div>
+</body>
+</html>

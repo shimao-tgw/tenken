@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style="text-align: center;">{{ koutei.koutei }} 各点検設備一覧</h1>
+    <div class="container">
+        <div class="grid-container">
+            {% if setubi_list %}
+                {% for setubi in setubi_list %}
+                    <div class="button-wrapper">
+                        <a href="{{ url_for('tenken_page', koutei_id=koutei.id, setubi_id=setubi.id) }}" class="button">
+                            <i class="fas fa-wrench"></i> {{ setubi.setubi|replace('/', '<br>')|safe }}
+                        </a>
+                    </div>
+                {% endfor %}
+                {% if koutei.koutei == "コンプレッサー" %}
+                    <div class="button-wrapper">
+                        <a href="{{ url_for('compressor_mail') }}" class="button">
+                            <i class="fas fa-wrench"></i> コンプレッサー<br>スケジュール
+                        </a>
+                    </div>
+                {% endif %}
+            {% else %}
+                <p>設備が登録されていません。</p>
+            {% endif %}
+        </div>
+    </div>
+    <br>
+    <!-- 戻るボタン -->
+    <div class="container">
+        <a href="/" class="back-button">戻る</a>
+    </div>
+{% endblock %}

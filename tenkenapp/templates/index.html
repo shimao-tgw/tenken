@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>点検項目</h2>
+  <div class="grid-container">
+    {% for process in processes %}
+      <a href="{{ url_for('koutei_page', id=process.id) }}" class="button">
+        <i class="fas fa-clipboard-check"></i>
+        {{ process.koutei }}
+      </a>
+    {% endfor %}
+  </div>
+
+  <h2>履歴確認</h2>
+  <div class="grid-container">
+    {% for process in processes %}
+      <a href="{{ url_for('rireki_page', koutei_id=process.id) }}" class="button">
+          <i class="fas fa-history"></i>
+          {{ process.koutei }}
+      </a>
+    {% endfor %}
+  </div>
+
+  <h2>テビキ操作説明</h2>
+  <div class="grid-container">
+    <a href="https://i83jds.tebiki.jp/courses/168914/play/3632357" class="button">
+      <i class="fas fa-play-circle"></i>操作説明
+    </a>
+    <a href="https://i83jds.tebiki.jp/courses/168914/play/3632373" class="button">
+      <i class="fas fa-database"></i>データ確認方法
+    </a>
+    <a href="https://i83jds.tebiki.jp/courses/168914/play/3632385" class="button">
+      <i class="fas fa-cogs"></i>NCTｺﾝﾌﾟﾚｯｻｰ
+    </a>
+  </div>
+  
+{% endblock %}

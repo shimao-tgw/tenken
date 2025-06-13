@@ -1,0 +1,449 @@
+{% extends "base.html" %}
+
+{% block title %}日常設備点検項目{% endblock %}
+
+{% block head %}
+    <script>
+        function validateForm() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const excludedCheckboxes = ["check_c7","check_c8", "check_c9", "check_c10","check_c11","check_c12","check_c13","check_c14","check_c15","check_c16","check_c17","check_c18"]; // これらは必須チェック対象から除外
+            let isChecked = true; // 初期状態は true（全てチェックされている前提）
+    
+            checkboxes.forEach(function(checkbox) {
+                // 除外リストに含まれていないチェックボックスは必須チェックの対象にする
+                if (!excludedCheckboxes.includes(checkbox.name) && checkbox.name.startsWith("check_") && !checkbox.checked) {
+                    isChecked = false;
+                }
+            });
+    
+            // 必須チェック対象でチェック漏れがあった場合はアラートを表示して送信をキャンセル
+            if (!isChecked) {
+                alert("チェック漏れがあります");
+                return false;  // フォーム送信をキャンセル
+            }
+    
+            return true;  // フォーム送信を許可
+        }
+    </script>    
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>日常設備点検項目</h1>
+        <h2>工程名: {{ koutei.koutei }} / 設備名: {{ setubi.setubi }}</h2>
+        <form  method="POST" onsubmit="return validateForm()">
+            <!-- <div class="grid-container"> -->
+                {% if tenken_list %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NO.</th>
+                            <th>検査項目</th>
+                            <th>点検内容</th>
+                            <th class="nowrap">チェック</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in tenken_list %}
+                            {% if item.id <= 8 %}
+                                <tr>
+                                    <td>{{ item.id }}</td>
+                                    <td class="nowrap">{{ item.tenken_list }}</td>
+                                    <td>{{ item.contents|replace('/', '<br>')|safe }}</td>
+                                    <td>
+                                        <input type="checkbox" name="check_c{{ item.id }}" value="OK">
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            <!-- </div> -->
+            <!-- <div class="grid-container"> -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NO.</th>
+                            <th>検査項目</th>
+                            <th>点検内容</th>
+                            <th class="nowrap">チェック</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in tenken_list %}
+                            {% if item.id > 8 %}
+                                <tr>
+                                    <td>{{ item.id }}</td>
+                                    <td class="nowrap">{{ item.tenken_list }}</td>
+                                    <td>{{ item.contents|replace('/', '<wbr>')|safe }}</td>
+                                    <td>
+                                        <input type="checkbox" name="check_c{{ item.id }}" value="OK">
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>点検リストが登録されていません。</p>
+            {% endif %}
+            <!-- </div> -->
+            部品交換時期
+            <table>
+                <thead>
+                    <tr>
+                        <th>NO.</th>
+                        <th>交換時期</th>
+                        <th>時間</th>
+                        <th>時期</th>
+                        <th>前回交換時期</th>
+                        <th>前回作業者</th>
+                        <th>交換者</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1年 潤滑油</td>
+                        <td>1200時間</td>
+                        <td>毎年7月</td>
+                        <td>
+                            {% if tenken_rireki_COMP[0] %}
+                                {{ tenken_rireki_COMP[0][0] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>                       
+                        <td>
+                            {% if tenken_rireki_COMP[0] %}
+                                {{ tenken_rireki_COMP[0][1] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>
+                        <td>
+                            <select id="" name="nc_1st_oil">
+                                <option value="">選択してください</option>
+                                {% for person in person_list %}
+                                <option value="{{ person.name }}">{{ person.name }}
+                                </option>
+                                {% endfor %}
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2年 フィルタ</td>
+                        <td>2400時間</td>
+                        <td id="filter-due"></td>
+                        <td>
+                            {% if tenken_rireki_COMP[1] %}
+                                {{ tenken_rireki_COMP[1][0] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>                       
+                        <td>
+                            {% if tenken_rireki_COMP[1] %}
+                                {{ tenken_rireki_COMP[1][1] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>
+                        <td>
+                            <select id="" name="nc_2nd_filter">
+                                <option value="">選択してください</option>
+                                {% for person in person_list %}
+                                <option value="{{ person.name }}">{{ person.name }}
+                                </option>
+                                {% endfor %}
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>4年 シリンダ</td>
+                        <td>4800時間</td>
+                        <td id="cylinder-due"></td>
+                        <td>
+                            {% if tenken_rireki_COMP[2] %}
+                                {{ tenken_rireki_COMP[2][0] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>                       
+                        <td>
+                            {% if tenken_rireki_COMP[2] %}
+                                {{ tenken_rireki_COMP[2][1] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>
+                        <td>
+                            <select id="" name="nc_4th_cylinder">
+                                <option value="">選択してください</option>
+                                {% for person in person_list %}
+                                <option value="{{ person.name }}">{{ person.name }}
+                                </option>
+                                {% endfor %}
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>4年 ピストン</td>
+                        <td>4800時間</td>
+                        <td id="piston-due"></td>
+                        <td>
+                            {% if tenken_rireki_COMP[3] %}
+                                {{ tenken_rireki_COMP[3][0] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>                       
+                        <td>
+                            {% if tenken_rireki_COMP[3] %}
+                                {{ tenken_rireki_COMP[3][1] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>
+                        <td>
+                            <select id="t" name="nc_4th_piston">
+                                <option value="">選択してください</option>
+                                {% for person in person_list %}
+                                <option value="{{ person.name }}">{{ person.name }}
+                                </option>
+                                {% endfor %}
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>4年 ピストンリング</td>
+                        <td>4800時間</td>
+                        <td id="pistonring-due"></td>
+                        <td>
+                            {% if tenken_rireki_COMP[4] %}
+                                {{ tenken_rireki_COMP[4][0] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>                       
+                        <td>
+                            {% if tenken_rireki_COMP[4] %}
+                                {{ tenken_rireki_COMP[4][1] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>
+                        <td>
+                            <select id="" name="nc_4th_pistonring">
+                                <option value="">選択してください</option>
+                                {% for person in person_list %}
+                                <option value="{{ person.name }}">{{ person.name }}
+                                </option>
+                                {% endfor %}
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>4年 フェザー弁セット</td>
+                        <td>4800時間</td>
+                        <td id="fethervalve-due"></td>
+                        <td>
+                            {% if tenken_rireki_COMP[5] %}
+                                {{ tenken_rireki_COMP[5][0] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>                       
+                        <td>
+                            {% if tenken_rireki_COMP[5] %}
+                                {{ tenken_rireki_COMP[5][1] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>
+                        <td>
+                            <select id="" name="nc_4th_fethervalve">
+                                <option value="">選択してください</option>
+                                {% for person in person_list %}
+                                <option value="{{ person.name }}">{{ person.name }}
+                                </option>
+                                {% endfor %}
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>4年 連接棒セット</td>
+                        <td>4800時間</td>
+                        <td id="conrod-due"></td>
+                        <td>
+                            {% if tenken_rireki_COMP[6] %}
+                                {{ tenken_rireki_COMP[6][0] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>                       
+                        <td>
+                            {% if tenken_rireki_COMP[6] %}
+                                {{ tenken_rireki_COMP[6][1] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>
+                        <td>
+                            <select id="" name="nc_4th_conrod">
+                                <option value="">選択してください</option>
+                                {% for person in person_list %}
+                                <option value="{{ person.name }}">{{ person.name }}
+                                </option>
+                                {% endfor %}
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>4年 逆止め弁中身セット</td>
+                        <td>4800時間</td>
+                        <td id="non_returnvalve-due"></td>
+                        <td>
+                            {% if tenken_rireki_COMP[7] %}
+                                {{ tenken_rireki_COMP[7][0] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>                       
+                        <td>
+                            {% if tenken_rireki_COMP[7] %}
+                                {{ tenken_rireki_COMP[7][1] }}
+                            {% else %}
+                                データがありません
+                            {% endif %}
+                        </td>
+                        <td>
+                            <select id="" name="nc_4th_non_returnvalve">
+                                <option value="">選択してください</option>
+                                {% for person in person_list %}
+                                <option value="{{ person.name }}">{{ person.name }}
+                                </option>
+                                {% endfor %}
+                                
+                            </select>
+                        </td>
+                    </tr>
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2" style="text-align:center;">入力項目</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><label for="tenken_person">点検者:</label></td>
+                        <td>
+                            <select id="tenken_person" name="tenken_person" required>
+                                <option value="">選択してください</option>
+                                {% for person in person_list %}
+                                <option value="{{ person.name }}">{{ person.name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><td>点検日時:</td>
+                        <td><input type="datetime-local" id="" name="tenken_date" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="remarks">備考(100字以内):</label></td>
+                        <td><textarea id="remarks" name="remarks" rows="3" maxlength="100"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="button-container">
+                <button type="submit">送信</button>
+            </div>
+        </form>
+        <br>
+        <br>
+        <h3>点検履歴　最新5件</h3>
+        {% if tenken_rireki %} 
+            <table>
+                <thead>
+                    <tr>
+                        <th>点検実施日</th>
+                        <th>作業者</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in tenken_rireki %}
+                    <tr>
+                        <td class="nowrap">{{ item.tenken_date }}</td>
+                        <td class="nowrap">{{ item.tenken_person }}</td>
+                        <td>{{ item.biko }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>点検リストが登録されていません。</p>
+        {% endif %}
+
+        <div class="container">
+            <a href="javascript:history.back()" class="back-button">戻る</a>
+        </div>
+    </div>
+
+<script>
+    // 基準年（2021年）と基準月（7月）
+    const baseYear = 2021;
+    const baseMonth = 7; 
+
+    // 交換部品とその交換周期
+    const parts = [
+        { name: 'nc_2nd_filter', cycle: 2, dueId: 'filter-due' },  // 2年周期の部品
+        { name: 'nc_4th_cylinder', cycle: 4, dueId: 'cylinder-due' }, // 4年周期の部品
+        { name: 'nc_4th_piston', cycle: 4, dueId: 'piston-due' }, // 4年周期の部品
+        { name: 'nc_4th_pistonring', cycle: 4, dueId: 'pistonring-due' }, // 4年周期の部品
+        { name: 'nc_4th_fethervalve', cycle: 4, dueId: 'fethervalve-due' }, // 4年周期の部品
+        { name: 'nc_4th_conrod', cycle: 4, dueId: 'conrod-due' }, // 4年周期の部品
+        { name: 'nc_4th_non_returnvalve', cycle: 4, dueId: 'non_returnvalve-due' }, // 4年周期の部品
+    ];
+
+    // 現在の年と月
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth() + 1; // JavaScriptの月は0から始まるので1を加える
+
+    // 部品ごとに交換時期を計算
+    parts.forEach(part => {
+        let year = baseYear;
+        let month = baseMonth;
+
+        // 現在の年と月を超えるまで繰り返し加算
+        while (year < currentYear || (year === currentYear && month < currentMonth)) {
+            month += part.cycle * 12;  // 月に換算して加算
+            if (month > 12) {  // 12月を超える場合、年を加算して月を調整
+                year += Math.floor(month / 12);
+                month = month % 12;
+            }
+        }
+
+        let dueDate = document.getElementById(part.dueId);
+        if (dueDate) {
+            dueDate.textContent = `${year}年${month}月`;  // 交換月を表示
+        }
+    });
+</script>
+{% endblock %}

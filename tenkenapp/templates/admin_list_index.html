@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            justify-items: center;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff0000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            max-width: 150px;
+        }
+        .button:hover {
+            background-color: #b31500;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #6c757d;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+
+        /* モバイル用スタイル */
+        @media (max-width: 870px) {
+            .container {
+                width: 95%; /* 画面幅を広めに */
+            }
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr); /* 2列に変更 */
+                gap: 10px;
+            }
+            .button {
+                font-size: 16px; /* タップしやすいようにフォントサイズUP */
+                padding: 15px 30px;
+                max-width: 70%; /* 幅いっぱいに */
+            }
+        }
+
+        /* スマホ（さらに小さい画面） */
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: repeat(1, 1fr); /* 1列に変更 */
+            }
+            .button {
+                font-size: 15px;
+                padding: 15px 30px;
+                max-width: 70%; /* 幅いっぱいに */
+            }
+        }
+    </style>
+<body>
+    <h1>点検リストテーブルメンテナンス</h1>
+    <div class="container">
+        <div class="grid-container">
+            {% for process in processes %}
+                <a href="{{ url_for('admin_list_koutei_page', id=process.id) }}" class="button">{{ process.koutei }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+    <!-- 戻るボタン -->
+    <div class="container">
+        <a href="{{ url_for('admin_page') }}" class="back-button">戻る</a>
+    </div>
+    
+</body>
+</html>
