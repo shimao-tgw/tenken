@@ -5,6 +5,8 @@
     --text: #333;
     --border-radius: 12px;
     --transition: 0.3s;
+    --bg-color: white;
+    --text-color: black;
 }
 
 [data-theme="dark"] {
