@@ -6,48 +6,40 @@
         <title>日常設備点検</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <style>
+          #flash-message {
+            position: absolute;        /* ヘッダー内で絶対位置指定し、他の要素を押し下げない */
+            top: 50%;                  /* ヘッダー高さの中央に配置 */
+            left: 50%;                 /* 横方向も中央に配置 */
+            transform: translate(-50%, -50%); /* 自身の幅・高さの半分だけずらして真ん中に正確に配置 */
+            font-size: 0.9rem;         /* 文字サイズを少し大きめに設定して読みやすく */
+            color: #ffffff;            /* 文字色は白で背景の青とコントラストをとる */
+            background-color: transparent; /* 背景は透明でヘッダー背景を活かす */
+            padding: 0;                /* 内側の余白はゼロにして高さを抑える */
+            margin: 0;                 /* 外側の余白もゼロに */
+            line-height: 1;            /* 行の高さを最小にして文字が上下で余白を取らない */
+            z-index: 1000;             /* 他の要素より前面に表示 */
+          }         
+        </style>
     </head>
 <body>
   <div class="loader" id="loader">
     <i class="fas fa-spinner"></i>
   </div>
-  <header>
+  <header style="position: relative;">
     <div class="title">二戸工場 - 日常設備点検</div>
-    <!-- <button class="theme-toggle" onclick="toggleTheme()">
-      <i class="fas fa-adjust"></i>
-    </button> -->
-  </header>
-  <div class="container">
-    {% block content %}{% endblock %}
-  </div>
-
-  <!-- <script>
-    function toggleTheme() {
-        const current = document.documentElement.getAttribute("data-theme");
-        const next = current === "dark" ? "light" : "dark";
-        document.documentElement.setAttribute("data-theme", next);
-        localStorage.setItem("theme", next);
-    }
-
-    window.addEventListener("DOMContentLoaded", () => {
-        const saved = localStorage.getItem("theme") || "light";
-        document.documentElement.setAttribute("data-theme", saved);
-
-        // ローディング表示制御（必要なら）
-        const loader = document.getElementById("loader");
-        loader.style.display = "none";
-    });
-</script> -->
-
-  <!-- フラッシュメッセージをここに表示 -->
-  <div class="container mt-2">
+  
     {% with messages = get_flashed_messages() %}
       {% if messages %}
-        <div id="flash-message" class="alert alert-success text-center" role="alert">
+        <div id="flash-message">
           {{ messages[0] }}
         </div>
       {% endif %}
     {% endwith %}
+  </header>
+  
+  <div class="container">
+    {% block content %}{% endblock %}
   </div>
 
 <footer>
