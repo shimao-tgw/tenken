@@ -786,3 +786,23 @@ INFO:werkzeug: * Debugger PIN: 599-740-962
 INFO:werkzeug: * Detected change in 'D:\\py\\flask\\tenken\\tenkenapp\\config.py', reloading
 INFO:werkzeug: * Detected change in 'D:\\py\\flask\\tenken\\tenkenapp\\config.py', reloading
 INFO:werkzeug: * Restarting with watchdog (windowsapi)
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:20] "GET /koutei/5 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:22] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:24] "GET /koutei/10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:24] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:24] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:26] "GET /compressor_mail HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:26] "GET /compressor_mail_data HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [17/Jun/2025 13:10:30] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
