@@ -586,6 +586,7 @@ def save_tenken_data_NCT(busyo, setubi, tenken_list, tenken_user, tenken_datetim
     
     except SQLAlchemyError:
         abort(500, description="データベースエラーが発生しました。(保存NCT)")
+        flash("⚠️ 登録中にエラーが発生しました。やり直してください。(保存NCT)")  # エラーメッセージ
 
 
 #NCTコンプレッサー
@@ -703,6 +704,7 @@ def save_tenken_data_COMP(busyo, setubi, tenken_list, tenken_user, tenken_dateti
     
     except SQLAlchemyError:
         abort(500, description="データベースエラーが発生しました。(保存COMP)")
+        flash("⚠️ 登録中にエラーが発生しました。やり直してください。(保存COMP)")  # エラーメッセージ
         
     
 #NCT以外
@@ -755,7 +757,7 @@ def save_tenken_data_ALL(busyo, setubi, tenken_list, tenken_user, tenken_datetim
     
     except SQLAlchemyError:
         abort(500, description="データベースエラーが発生しました。(保存ALL)")
-        
+        flash("⚠️ 登録中にエラーが発生しました。やり直してください。(保存ALL)")  # エラーメッセージ
 
 #プレス　トルクドライバー M3, M4
 def save_tenken_data_TDriver(m_size, memori_data, jissoku_data, tenken_user, remarks, model_class):
@@ -782,7 +784,7 @@ def save_tenken_data_TDriver(m_size, memori_data, jissoku_data, tenken_user, rem
 
     except SQLAlchemyError:
         abort(500, description="データベースエラーが発生しました。")
-    
+        flash("⚠️ 登録中にエラーが発生しました。やり直してください。(保存トルクドライバー)")
 
 #設備コンプレッサー
 def save_tenken_data_COMPRESSOR(busyo, setubi, tenken_list, tenken_user, tenken_datetime, remarks, model_class):
@@ -897,7 +899,7 @@ def save_tenken_data_COMPRESSOR(busyo, setubi, tenken_list, tenken_user, tenken_
         db.session.rollback()  # ロールバックしてDBの状態を元に戻す
         print("データベース保存エラー:", e)
         print(traceback.format_exc())  # 詳細なエラーメッセージを表示
-
+        flash("⚠️ 登録中にエラーが発生しました。やり直してください。(設備コンプレッサー)")  # エラーメッセージ
 
 @app.route('/')
 def index():
