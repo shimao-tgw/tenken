@@ -2,9 +2,9 @@
 
 {% block title %}日常設備点検項目{% endblock %}
 
-{% block head %}
+<!-- {% block scripts %}
     <script>
-        function validateForm() {
+        function validateForm_nc_comp() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
             const excludedCheckboxes = ["check_c7","check_c8", "check_c9", "check_c10","check_c11","check_c12","check_c13","check_c14","check_c15","check_c16","check_c17","check_c18"]; // これらは必須チェック対象から除外
             let isChecked = true; // 初期状態は true（全てチェックされている前提）
@@ -25,13 +25,13 @@
             return true;  // フォーム送信を許可
         }
     </script>    
-{% endblock %}
+{% endblock %} -->
 
 {% block content %}
     <div class="container">
         <h1>日常設備点検項目</h1>
         <h2>工程名: {{ koutei.koutei }} / 設備名: {{ setubi.setubi }}</h2>
-        <form  method="POST" onsubmit="return validateForm()">
+        <form  method="POST" onsubmit="return validateForm_nc_comp()">
             <!-- <div class="grid-container"> -->
                 {% if tenken_list %}
                 <table>

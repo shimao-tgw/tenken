@@ -2,7 +2,7 @@
 
 {% block title %}日常設備点検項目{% endblock %}
 
-{% block head %}
+<!-- {% block scripts %}
     <script>
         function validateForm() {
             const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -38,13 +38,13 @@
             return true;  // フォーム送信を許可
         }
     </script>
-{% endblock %}
+{% endblock %} -->
 
 {% block content %}
     <div class="container">
         <h1>日常設備点検項目</h1>
         <h2>工程名: {{ koutei.koutei }} / 設備名: {{ setubi.setubi }}</h2>
-        <form  method="POST" onsubmit="return validateForm()">
+        <form  method="POST" onsubmit="return validateForm_comp()">
             <!-- <div class="grid-container"> -->
                 {% if tenken_list %}
                     <table>

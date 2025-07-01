@@ -2,24 +2,24 @@
 
 {% block title %}日常設備点検項目{% endblock %}
 
-{% block head %}
+<!-- {% block scripts %}
 <script>
-function validateForm() {
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-    let isChecked = true;
-    checkboxes.forEach(function(checkbox) {
-        if (!checkbox.checked) {
-            isChecked = false;
+    function validateForm() {
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        let isChecked = true;
+        checkboxes.forEach(function(checkbox) {
+            if (!checkbox.checked) {
+                isChecked = false;
+            }
+        });
+        if (!isChecked) {
+            alert("チェック漏れがあります");
+            return false;
         }
-    });
-    if (!isChecked) {
-        alert("チェック漏れがあります");
-        return false;
+        return true;
     }
-    return true;
-}
 </script>
-{% endblock %}
+{% endblock %} -->
 
 {% block content %}
 <div class="container">
@@ -65,14 +65,14 @@ function validateForm() {
                         <select id="tenken_person" name="tenken_person" required>
                             <option value="">選択してください</option>
                             {% for person in person_list %}
-                            <option value="{{ person.name }}">{{ person.name }}</option>
+                                <option value="{{ person.name }}">{{ person.name }}</option>
                             {% endfor %}
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <td>点検日時:</td>
-                    <td><input type="datetime-local" name="tenken_date" required></td>
+                    <td><label for="tenken_date">点検日時:</label></td>
+                    <td><input type="datetime-local" id="tenken_date" name="tenken_date" required></td>
                 </tr>
                 <tr>
                     <td><label for="remarks">備考(100字以内):</label></td>

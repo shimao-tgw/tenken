@@ -1,12 +1,20 @@
 # tenkenapp/views.py
-from flask import current_app as app, render_template, request, redirect, url_for, abort, jsonify, flash
-from flask_paginate import Pagination, get_page_parameter
-from sqlalchemy import desc, func
-from sqlalchemy.orm.exc import NoResultFound
-from sqlalchemy.exc import SQLAlchemyError
+# -*- coding: utf-8 -*-
+
 import logging
 import traceback
+from datetime import datetime
+
+# 2. サードパーティライブラリ
+from flask import abort, current_app as app, flash, jsonify, redirect, render_template, request, url_for
+from flask_paginate import Pagination, get_page_parameter
+from sqlalchemy import desc, func
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.orm.exc import NoResultFound
+
+# 3. 自作モジュール（tenkenapp配下）
 from tenkenapp import db
+
 from tenkenapp.models.koutei import Koutei, Person, Tenken
 from tenkenapp.models.setubi import Nct, Baritori, Press, Tap, Bender, Spot, Weld, Kensa, Syukka, Compressor_setubi
 from tenkenapp.models.nct import Acies, Em, C1, Compressor
@@ -20,7 +28,6 @@ from tenkenapp.models.kensa import Analog_nogisu, Digital_nogisu, Keyence
 from tenkenapp.models.syukka import Senjyoki, Forklift, Forklift_model, Senjyoki_monthly
 from tenkenapp.models.comp import Comp_list, Comp_tenken #, Comp_test_list
 from tenkenapp.models.mail import Email_schedule
-from datetime import datetime
 
 
 # ログ設定（ファイルに保存する設定とコンソールに出力）

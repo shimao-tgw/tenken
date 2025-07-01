@@ -23,8 +23,7 @@
         </style>
     </head>
 <body>
-  {% block scripts %}{% endblock %}
-  
+ 
   <div class="loader" id="loader">
     <i class="fas fa-spinner"></i>
   </div>
@@ -47,10 +46,6 @@
     {% block content %}{% endblock %}
   </div>
 
-<footer>
-  <small>© 株式会社ツガワ　二戸工場</small>
-</footer>
-
 <!-- jQueryで自動的に消す処理 -->
 <!-- body の最後に置く -->
 <script>
@@ -64,6 +59,234 @@
       }
     }, 2000);
   });
+
+  //通常点検
+  function validateForm() {
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+      let isChecked = true;
+      checkboxes.forEach(function(checkbox) {
+          if (!checkbox.checked) {
+              isChecked = false;
+          }
+      });
+      if (!isChecked) {
+          alert("チェック漏れがあります");
+          return false;
+      }
+      return true;
+  }
+
+  // 設備コンプレッサー
+  function validateForm_comp() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let isChecked = true; // チェック漏れがあれば false にする
+
+    // チェックボックスが1つでもオフなら isChecked を false に
+    checkboxes.forEach(function(checkbox) {
+        if (!checkbox.checked) {
+            isChecked = false;
+        }
+    });
+
+    // チェック漏れがあった場合はアラートを表示して送信をキャンセル
+    if (!isChecked) {
+        alert("チェック漏れがあります");
+        return false;  // フォーム送信をキャンセル
+    }
+
+    // name="remarks"以外のテキストボックスの入力チェック（整数または小数のみ許可）
+    const inputFields = document.querySelectorAll('input[type="text"]:not([name="remarks"])');
+
+    for (let i = 0; i < inputFields.length; i++) {
+        const value = inputFields[i].value;
+        const regex = /^[0-9]+(\.[0-9]+)?$/; // 整数または小数のみ許可する正規表現
+
+        if (value && !regex.test(value)) {
+            alert("無効な入力があります。整数または小数のみ入力してください。");
+            inputFields[i].focus();
+            return false;
+        }
+    }
+    return true;  // フォーム送信を許可    
+  }
+
+  //acies
+  function validateForm_ac() {
+    // 全てのチェックボックスを取得
+    const excludedIds = ["24"];
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let isChecked = true; // チェック漏れがあれば false にする
+
+    // 各チェックボックスをループ処理
+    checkboxes.forEach(function(checkbox) {
+        // name='gr_check' はスキップ
+        if (checkbox.name === 'gr_check') {
+            return;
+        }
+        
+        // name="check_c24" の形式から数値IDを取得
+        const match = checkbox.name.match(/^check_c(\d+)$/);
+        if (match) {
+            const id = parseInt(match[1]);
+
+            // ID 24 はバリデーションスキップ
+            if (id === 24) return;
+
+            // チェックされていなければエラー
+            if (!checkbox.checked) {
+                isChecked = false;
+            }
+        }
+
+    });
+
+    // チェック漏れがあった場合はアラートを表示して送信をキャンセル
+    if (!isChecked) {
+        alert("チェック漏れがあります");
+        return false; // フォーム送信をキャンセル
+    }
+    
+    // 数値（正の整数または小数）であるかチェック（正規表現）
+    let air_pressure = document.getElementsByName("air_pressure")[0].value.trim();
+    let residual_pressure = document.getElementsByName("residual_pressure")[0].value.trim();
+    let regex = /^(?:\d+|\d*\.\d+)$/;
+    
+    // air_pressure（エアー圧）のチェック
+    if (air_pressure === "" || !regex.test(air_pressure)) {
+        alert("エアー圧の入力に誤りがあります。");
+        return false; // フォーム送信を中止
+    }
+
+    // EM の場合、residual_pressure（アシストガスの残圧）の項目は表示されないので、チェックしない
+    if (residual_pressure === "" || !regex.test(residual_pressure)) {
+        alert("アシストガスの残圧の入力に間違いがあります。");
+        return false; 
+    }
+
+    return true; // フォーム送信を許可
+  }
+
+
+  //c1
+  function validateForm_c1() {
+    // 全てのチェックボックスを取得
+    const excludedIds = ["23"];
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    let isChecked = true; // チェック漏れがあれば false にする
+
+    // 各チェックボックスをループ処理
+    checkboxes.forEach(function(checkbox) {
+        // name='gr_check' はスキップ
+        if (checkbox.name === 'gr_check') {
+            return;
+        }
+        
+        // name="check_c23" の形式から数値IDを取得
+        const match = checkbox.name.match(/^check_c(\d+)$/);
+        if (match) {
+            const id = parseInt(match[1]);
+
+            // ID 23 はバリデーションスキップ
+            if (id === 23) return;
+
+            // チェックされていなければエラー
+            if (!checkbox.checked) {
+                isChecked = false;
+            }
+        }
+
+    });
+
+    // チェック漏れがあった場合はアラートを表示して送信をキャンセル
+    if (!isChecked) {
+        alert("チェック漏れがあります");
+        return false; // フォーム送信をキャンセル
+    }
+    
+    // 数値（正の整数または小数）であるかチェック（正規表現）
+    let air_pressure = document.getElementsByName("air_pressure")[0].value.trim();
+    let residual_pressure = document.getElementsByName("residual_pressure")[0].value.trim();
+    let regex = /^(?:\d+|\d*\.\d+)$/;
+    
+    // air_pressure（エアー圧）のチェック
+    if (air_pressure === "" || !regex.test(air_pressure)) {
+        alert("エアー圧の入力に誤りがあります。");
+        return false; // フォーム送信を中止
+    }
+
+    // EM の場合、residual_pressure（アシストガスの残圧）の項目は表示されないので、チェックしない
+    if (residual_pressure === "" || !regex.test(residual_pressure)) {
+        alert("アシストガスの残圧の入力に間違いがあります。");
+        return false; 
+    }
+
+    return true; // フォーム送信を許可
+  }
+
+  //em
+  function validateForm_em() {
+    // 全てのチェックボックスを取得
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    let isChecked = true; // チェック漏れがあれば false にする
+
+    // 各チェックボックスをループ処理
+    checkboxes.forEach(function(checkbox) {
+        // name='gr_check' はスキップ
+        if (checkbox.name === 'gr_check') {
+            return;
+        }
+        // チェックされていない場合は isChecked を false に
+        if (!checkbox.checked) {
+            isChecked = false;
+        }
+    });
+
+    // チェック漏れがあった場合はアラートを表示して送信をキャンセル
+    if (!isChecked) {
+        alert("チェック漏れがあります");
+        return false; // フォーム送信をキャンセル
+    }
+    
+    // 数値（正の整数または小数）であるかチェック（正規表現）
+    let air_pressure = document.getElementsByName("air_pressure")[0].value.trim();
+    let regex = /^(?:\d+|\d*\.\d+)$/;
+    
+    // air_pressure（エアー圧）のチェック
+    if (air_pressure === "" || !regex.test(air_pressure)) {
+        alert("エアー圧の入力に誤りがあります。");
+        return false; // フォーム送信を中止
+    }
+
+    return true; // フォーム送信を許可
+  }
+
+  // nct コンプレッサー
+  function validateForm_nc_comp() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const excludedCheckboxes = ["check_c7","check_c8", "check_c9", "check_c10","check_c11","check_c12","check_c13","check_c14","check_c15","check_c16","check_c17","check_c18"]; // これらは必須チェック対象から除外
+    let isChecked = true; // 初期状態は true（全てチェックされている前提）
+
+    checkboxes.forEach(function(checkbox) {
+        // 除外リストに含まれていないチェックボックスは必須チェックの対象にする
+        if (!excludedCheckboxes.includes(checkbox.name) && checkbox.name.startsWith("check_") && !checkbox.checked) {
+            isChecked = false;
+        }
+    });
+
+    // 必須チェック対象でチェック漏れがあった場合はアラートを表示して送信をキャンセル
+    if (!isChecked) {
+        alert("チェック漏れがあります");
+        return false;  // フォーム送信をキャンセル
+    }
+
+    return true;  // フォーム送信を許可
+  }
 </script>
+
+<footer>
+  <small>© 株式会社ツガワ　二戸工場</small>
+</footer>
+
 </body>
 </html>

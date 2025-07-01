@@ -860,3 +860,656 @@ INFO:werkzeug:127.0.0.1 - - [25/Jun/2025 08:04:30] "[36mGET /static/css/style.c
 INFO:werkzeug:127.0.0.1 - - [25/Jun/2025 08:04:30] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
 INFO:werkzeug:127.0.0.1 - - [25/Jun/2025 08:04:32] "POST /update_biko HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [25/Jun/2025 08:04:35] "POST /update_biko HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:46] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:46] "GET /static/css/style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:47] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:48] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:48] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:59] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:59] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:59] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:46:59] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:02] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:02] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:13] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:13] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:13] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:14] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:22] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:22] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:22] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:51:22] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:53:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:53:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:53:55] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:12] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:19] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:19] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:34] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:34] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:35] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:41] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:54:41] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:02] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:02] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:05] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:05] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:06] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:06] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:13] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:13] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:13] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:13] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:53] "GET /koutei/8 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:54] "GET /tenken/8/18 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:55:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:17] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:21] "GET /admin HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:21] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:23] "GET /admin_tenkencomp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:23] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:23] "GET /admin_comp_data?_=1751338643466 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:24] "GET /admin HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:24] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:24] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:25] "GET /admin_tenken HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:25] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:25] "GET /admin_tenken_data?_=1751338645579 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:28] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:30] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:31] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:33] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:35] "GET /koutei/10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:35] "GET /compressor_mail HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:35] "GET /compressor_mail_data HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:39] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 11:57:39] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:31] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:31] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:33] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:33] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:34] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:34] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:42] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:42] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:42] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:54] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:55] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:55] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:00:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:50] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:51] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:52] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:53] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:54] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:02:56] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:07] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:08] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:09] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:09] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:09] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:15] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:15] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:15] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:03:15] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:07] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:07] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:08] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:08] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:16] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:16] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:05:16] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:06] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:06] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:07] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:08] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:08] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:09] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:09] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:16] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:16] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:16] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:26] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:29] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:29] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:29] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:30] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:30] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:06:31] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:37] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:37] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:38] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:38] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:38] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:38] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:ÉGÉâÅ[Ç™î≠ê∂ÇµÇ‹ÇµÇΩ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:10:53] "[35m[1mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 500 -
+ERROR:root:ÉGÉâÅ[Ç™î≠ê∂ÇµÇ‹ÇµÇΩ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:11:02] "[35m[1mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:42] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:42] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:44] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:44] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:44] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:44] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:50] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:50] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:14:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:15:54] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:15:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:15:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:15:54] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:15:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:15:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:15:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:ÉGÉâÅ[Ç™î≠ê∂ÇµÇ‹ÇµÇΩ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:15:56] "[35m[1mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:17:59] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:00] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:02] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:02] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:03] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:03] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:13] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:13] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:13] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:18:13] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:37] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:37] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:38] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:38] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:39] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:39] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:ÉGÉâÅ[Ç™î≠ê∂ÇµÇ‹ÇµÇΩ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:41] "[35m[1mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:50] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:50] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:19:50] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:15] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:15] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:19] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:19] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:20] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:20] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:ÉGÉâÅ[Ç™î≠ê∂ÇµÇ‹ÇµÇΩ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:22] "[35m[1mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:21:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:28:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:28:51] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:28:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:28:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:28:53] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:28:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:28:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:28:54] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:28:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:28:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:01] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:01] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:01] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:01] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:23] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:23] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:24] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:24] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:24] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:ÉGÉâÅ[Ç™î≠ê∂ÇµÇ‹ÇµÇΩ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:26] "[35m[1mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:29:32] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:11] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:13] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:13] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:14] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:14] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:23] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:23] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:23] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:31:23] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:10] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:10] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:10] "GET /tenken/9/3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:10] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:11] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:12] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:12] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:16] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:59] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:32:59] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:33:01] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:47] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:51] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:51] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:52] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 12:54:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:10] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:10] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:11] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:11] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:12] "GET /tenken/9/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:12] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:23] "[32mPOST /tenken/9/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:23] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:23] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:23] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:32] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:32] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:33] "GET /tenken/1/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:09:33] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:00] "[32mPOST /tenken/1/1 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:00] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:00] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:11] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:11] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:11] "GET /tenken/1/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:11] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:13] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:ÉGÉâÅ[Ç™î≠ê∂ÇµÇ‹ÇµÇΩ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:10:36] "[35m[1mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:16:23] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:16:24] "GET /tenken/1/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:16:24] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:16:24] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:26] "[32mPOST /tenken/1/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:26] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:26] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:36] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:36] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:36] "GET /tenken/1/4 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:36] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:38] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:38] "GET /tenken/1/3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:18:38] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:19:09] "[32mPOST /tenken/1/3 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:19:09] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:19:09] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:19:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:19:09] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:06] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:06] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:07] "GET /tenken/1/2 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:07] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:26] "[32mPOST /tenken/1/2 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:26] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:26] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:26] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:34] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:34] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:34] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:35] "GET /tenken/1/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:21:38] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:35] "GET /tenken/1/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:35] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:37] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:40] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:41] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:41] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:43] "GET /tenken/1/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:43] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:55] "[32mPOST /tenken/1/1 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:55] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:22:55] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:23:13] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:23:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:23:13] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:23:14] "GET /tenken/1/4 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:23:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:23:14] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:14] "GET /tenken/1/4 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:14] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:44] "[32mPOST /tenken/1/4 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:44] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:44] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:44] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:54] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:54] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:55] "GET /tenken/1/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:25:55] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:37] "[32mPOST /tenken/1/1 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:37] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:37] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:37] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:46] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:46] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:47] "GET /tenken/1/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:47] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:26:49] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:18] "GET /tenken/1/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:18] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:32] "[32mPOST /tenken/1/1 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:32] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:32] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:32] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:48] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:48] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:48] "GET /tenken/1/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:48] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:50] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:54] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+ERROR:root:ÉGÉâÅ[Ç™î≠ê∂ÇµÇ‹ÇµÇΩ: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:29:54] "[35m[1mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 500 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.4.201:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:31:39] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:31:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:31:39] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:31:40] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:31:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:31:40] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:31:41] "GET /tenken/1/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:31:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:31:41] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:15] "[32mPOST /tenken/1/1 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:15] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:15] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:15] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:23] "GET /koutei/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:23] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:24] "GET /tenken/1/3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:24] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:24] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:53] "[32mPOST /tenken/1/3 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:53] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:53] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:32:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:33:03] "GET /koutei/10 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:33:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:33:03] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:33:04] "GET /tenken/10/1 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:33:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:33:04] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:34:03] "[32mPOST /tenken/10/1 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:34:03] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:34:03] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:34:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:34:03] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:34:30] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:34:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:34:30] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:34:31] "GET /tenken/9/3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:34:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:34:31] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:35:00] "[32mPOST /tenken/9/3 HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:35:00] "[32mGET /success HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:35:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:35:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:35:00] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:35:14] "GET /koutei/9 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:35:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:35:14] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:35:14] "GET /tenken/9/3 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:35:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [01/Jul/2025 13:35:14] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 204 -
